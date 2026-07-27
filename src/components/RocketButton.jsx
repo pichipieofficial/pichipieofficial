@@ -52,8 +52,8 @@ export default function RocketButton() {
         exit={{ opacity: 0, scale: 0.5 }}
         style={{
           position: 'fixed',
-          bottom: '30px',
-          right: '30px',
+          bottom: 'clamp(16px, 3vw, 30px)',
+          right: 'clamp(16px, 3vw, 30px)',
           zIndex: 999
         }}
       >
@@ -75,10 +75,10 @@ export default function RocketButton() {
             ease: 'easeInOut'
           }}
           style={{
-            width: '56px',
-            height: '56px',
+            width: 'clamp(44px, 10vw, 54px)',
+            height: 'clamp(44px, 10vw, 54px)',
             borderRadius: '50%',
-            background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.8) 0%, rgba(0, 229, 255, 0.8) 100%)',
+            background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.85) 0%, rgba(0, 229, 255, 0.85) 100%)',
             border: '2px solid rgba(255, 255, 255, 0.3)',
             color: '#FFFFFF',
             display: 'flex',
@@ -87,13 +87,13 @@ export default function RocketButton() {
             cursor: 'pointer',
             boxShadow: isLaunching
               ? '0 0 50px #FF4500, 0 0 100px #FF8C00'
-              : '0 10px 30px rgba(0, 229, 255, 0.4)',
+              : '0 8px 25px rgba(0, 229, 255, 0.4)',
             backdropFilter: 'blur(12px)',
             outline: 'none'
           }}
           title="Rocket Launch Back to Top 🚀"
         >
-          <Rocket size={26} style={{ transform: 'rotate(-45deg)' }} />
+          <Rocket size={22} style={{ transform: 'rotate(-45deg)' }} />
         </motion.button>
       </motion.div>
     </AnimatePresence>

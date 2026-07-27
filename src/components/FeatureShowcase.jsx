@@ -49,29 +49,29 @@ export default function FeatureShowcase() {
   ];
 
   return (
-    <section style={{ padding: '80px 24px', position: 'relative' }}>
+    <section style={{ padding: '70px 16px', position: 'relative' }}>
       <div className="container-custom">
         
         {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(28px, 4vw, 48px)',
+            fontSize: 'clamp(26px, 4vw, 48px)',
             fontWeight: 900,
-            marginBottom: '16px'
+            marginBottom: '14px'
           }}>
             Engineered for <span className="text-gradient-cyan">Maximum Performance</span>
           </h2>
-          <p style={{ fontSize: '16px', color: 'var(--color-text-sub)', maxWidth: '600px', margin: '0 auto' }}>
+          <p style={{ fontSize: '15px', color: 'var(--color-text-sub)', maxWidth: '600px', margin: '0 auto' }}>
             Built with Media3 ExoPlayer, custom native decoders, and a ground-up Cyber-Glass design system.
           </p>
         </div>
 
-        {/* 6-Card Grid */}
+        {/* Responsive Feature Cards Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '24px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '20px'
         }}>
           {features.map((item, idx) => (
             <motion.div
@@ -82,7 +82,7 @@ export default function FeatureShowcase() {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="glass-card"
               style={{
-                padding: '30px',
+                padding: 'clamp(20px, 4vw, 30px)',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between'
@@ -93,23 +93,23 @@ export default function FeatureShowcase() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
-                  marginBottom: '20px'
+                  marginBottom: '16px'
                 }}>
                   <div style={{
-                    padding: '12px',
-                    borderRadius: '16px',
+                    padding: '10px',
+                    borderRadius: '14px',
                     background: 'rgba(255, 255, 255, 0.05)',
                     border: '1px solid rgba(255, 255, 255, 0.1)'
                   }}>
                     {item.icon}
                   </div>
                   <span style={{
-                    fontSize: '11px',
+                    fontSize: '10px',
                     fontWeight: 800,
                     letterSpacing: '1px',
                     color: 'var(--color-primary)',
                     background: 'rgba(0, 229, 255, 0.1)',
-                    padding: '6px 12px',
+                    padding: '5px 10px',
                     borderRadius: '20px',
                     border: '1px solid rgba(0, 229, 255, 0.2)'
                   }}>
@@ -119,9 +119,9 @@ export default function FeatureShowcase() {
 
                 <h3 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '21px',
+                  fontSize: 'clamp(18px, 3vw, 21px)',
                   fontWeight: 800,
-                  marginBottom: '12px',
+                  marginBottom: '10px',
                   lineHeight: 1.3
                 }}>
                   {item.title}
@@ -131,16 +131,16 @@ export default function FeatureShowcase() {
                   fontSize: '14px',
                   color: 'var(--color-text-sub)',
                   lineHeight: 1.6,
-                  marginBottom: '20px'
+                  marginBottom: '18px'
                 }}>
                   {item.description}
                 </p>
               </div>
 
-              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px' }}>
+              <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '14px' }}>
                 {item.highlights.map((point, pIdx) => (
-                  <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', fontSize: '13px', color: '#CBD5E1' }}>
-                    <Check size={14} color="#00E5FF" /> {point}
+                  <div key={pIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px', fontSize: '12px', color: '#CBD5E1' }}>
+                    <Check size={14} color="#00E5FF" style={{ flexShrink: 0 }} /> <span>{point}</span>
                   </div>
                 ))}
               </div>

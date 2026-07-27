@@ -4,11 +4,11 @@ import { Radio, AlertTriangle, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export default function StandbySlateSection() {
   return (
-    <section id="standby" style={{ padding: '80px 24px', position: 'relative' }}>
+    <section id="standby" style={{ padding: '70px 16px', position: 'relative' }}>
       <div className="container-custom" style={{ maxWidth: '1000px' }}>
         
         {/* Section Title */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{
             background: 'rgba(168, 85, 247, 0.12)',
             border: '1px solid rgba(168, 85, 247, 0.3)',
@@ -18,13 +18,14 @@ export default function StandbySlateSection() {
             padding: '6px 16px',
             borderRadius: '20px',
             textTransform: 'uppercase',
-            letterSpacing: '1px'
+            letterSpacing: '1px',
+            display: 'inline-block'
           }}>
             Signal Standby Engine
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontSize: 'clamp(26px, 4vw, 44px)',
             fontWeight: 900,
             marginTop: '12px',
             marginBottom: '12px'
@@ -38,7 +39,7 @@ export default function StandbySlateSection() {
 
         {/* Live Graphic Mockup of Standby Slate */}
         <div className="glass-card" style={{
-          padding: '40px 24px',
+          padding: 'clamp(20px, 4vw, 40px)',
           background: 'rgba(11, 15, 28, 0.95)',
           border: '1px solid rgba(168, 85, 247, 0.4)',
           boxShadow: '0 25px 80px rgba(168, 85, 247, 0.2)',
@@ -49,7 +50,7 @@ export default function StandbySlateSection() {
           <div style={{
             maxWidth: '540px',
             margin: '0 auto',
-            padding: '32px',
+            padding: 'clamp(18px, 4vw, 32px)',
             background: 'rgba(15, 23, 42, 0.9)',
             borderRadius: '20px',
             border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -60,8 +61,8 @@ export default function StandbySlateSection() {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
               style={{
-                width: '64px',
-                height: '64px',
+                width: '56px',
+                height: '56px',
                 borderRadius: '50%',
                 background: 'rgba(168, 85, 247, 0.15)',
                 border: '1px solid rgba(168, 85, 247, 0.4)',
@@ -71,10 +72,10 @@ export default function StandbySlateSection() {
                 margin: '0 auto 16px'
               }}
             >
-              <Radio size={32} color="#A855F7" />
+              <Radio size={28} color="#A855F7" />
             </motion.div>
 
-            <h3 style={{ fontSize: '22px', fontWeight: 900, color: '#FFFFFF', marginBottom: '8px' }}>
+            <h3 style={{ fontSize: 'clamp(18px, 3.5vw, 22px)', fontWeight: 900, color: '#FFFFFF', marginBottom: '8px' }}>
               This Channel is Not Available Right Now
             </h3>
 
@@ -85,15 +86,17 @@ export default function StandbySlateSection() {
             <div style={{
               display: 'inline-flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: '6px',
               background: 'rgba(0, 229, 255, 0.1)',
               padding: '6px 14px',
               borderRadius: '20px',
-              fontSize: '12px',
+              fontSize: '11px',
               color: '#00E5FF',
-              fontWeight: 700
+              fontWeight: 700,
+              maxWidth: '100%'
             }}>
-              <CheckCircle2 size={14} /> Zero Obstructive Popups • Auto Reconnect Active
+              <CheckCircle2 size={13} /> Zero Obstructive Popups • Auto Reconnect Active
             </div>
           </div>
 

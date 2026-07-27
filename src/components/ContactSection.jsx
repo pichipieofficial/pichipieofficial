@@ -18,7 +18,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" style={{ padding: '90px 24px', position: 'relative' }}>
+    <section id="contact" style={{ padding: '70px 16px', position: 'relative' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         
         <motion.div
@@ -36,7 +36,7 @@ export default function ContactSection() {
             background: 'rgba(0, 229, 255, 0.1)',
             border: '1px solid rgba(0, 229, 255, 0.3)',
             color: '#00E5FF',
-            fontSize: '13px',
+            fontSize: '12px',
             fontWeight: 700,
             marginBottom: '16px'
           }}>
@@ -45,13 +45,13 @@ export default function ContactSection() {
 
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontSize: 'clamp(26px, 4vw, 44px)',
             fontWeight: 900,
             marginBottom: '14px'
           }}>
             Get in Touch with <span className="text-gradient-cyan">Dev</span>
           </h2>
-          <p style={{ fontSize: '15px', color: 'var(--color-text-sub)', maxWidth: '600px', margin: '0 auto 36px' }}>
+          <p style={{ fontSize: '15px', color: 'var(--color-text-sub)', maxWidth: '600px', margin: '0 auto 32px' }}>
             Have a feature request, bug report, stream source inquiry, or want to collaborate? Drop us an email anytime directly to the developer!
           </p>
         </motion.div>
@@ -63,7 +63,7 @@ export default function ContactSection() {
           variants={fadeUpVariant}
           className="glass-card"
           style={{
-            padding: '36px 28px',
+            padding: 'clamp(24px, 4vw, 36px) clamp(16px, 3vw, 28px)',
             borderRadius: '24px',
             maxWidth: '620px',
             margin: '0 auto',
@@ -74,8 +74,8 @@ export default function ContactSection() {
           }}
         >
           <div style={{
-            width: '60px',
-            height: '60px',
+            width: '56px',
+            height: '56px',
             borderRadius: '50%',
             background: 'linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(168, 85, 247, 0.2))',
             border: '1px solid rgba(0, 229, 255, 0.4)',
@@ -83,17 +83,17 @@ export default function ContactSection() {
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-            <Mail size={30} color="#00E5FF" />
+            <Mail size={28} color="#00E5FF" />
           </div>
 
           <div>
-            <div style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '1px', color: '#94A3B8', fontWeight: 700, marginBottom: '6px' }}>
+            <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '1px', color: '#94A3B8', fontWeight: 700, marginBottom: '6px' }}>
               Developer Direct Contact
             </div>
             <a
               href={`mailto:${devEmail}`}
               style={{
-                fontSize: 'clamp(18px, 3vw, 24px)',
+                fontSize: 'clamp(16px, 3.5vw, 24px)',
                 fontWeight: 800,
                 color: '#FFFFFF',
                 textDecoration: 'none',
@@ -107,18 +107,22 @@ export default function ContactSection() {
             </a>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', marginTop: '8px' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center', width: '100%', marginTop: '6px' }}>
             <a
               href={`mailto:${devEmail}`}
               className="btn-primary-gradient"
               style={{
-                padding: '12px 26px',
+                padding: '12px 24px',
                 fontSize: '14px',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '8px',
                 textDecoration: 'none',
-                borderRadius: '30px'
+                borderRadius: '30px',
+                minWidth: '160px',
+                flexGrow: 1,
+                maxWidth: '240px'
               }}
             >
               <Send size={16} /> Send Email
@@ -128,13 +132,17 @@ export default function ContactSection() {
               onClick={handleCopy}
               className="btn-glass-secondary"
               style={{
-                padding: '12px 24px',
+                padding: '12px 22px',
                 fontSize: '14px',
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '8px',
                 cursor: 'pointer',
-                borderRadius: '30px'
+                borderRadius: '30px',
+                minWidth: '160px',
+                flexGrow: 1,
+                maxWidth: '240px'
               }}
             >
               {copied ? <Check size={16} color="#10B981" /> : <Copy size={16} />}

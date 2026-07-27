@@ -4,14 +4,14 @@ import { Download, Tv, Smartphone, ShieldCheck, Globe } from 'lucide-react';
 
 export default function InstallGuide({ onDownloadClick }) {
   return (
-    <section id="guide" style={{ padding: '80px 24px', background: 'rgba(9, 13, 22, 0.6)', position: 'relative' }}>
+    <section id="guide" style={{ padding: '70px 16px', background: 'rgba(9, 13, 22, 0.6)', position: 'relative' }}>
       <div className="container-custom" style={{ maxWidth: '1000px' }}>
         
         {/* Title */}
-        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontSize: 'clamp(26px, 4vw, 44px)',
             fontWeight: 900,
             marginBottom: '12px'
           }}>
@@ -22,11 +22,11 @@ export default function InstallGuide({ onDownloadClick }) {
           </p>
         </div>
 
-        {/* 2 Column Guide Cards */}
+        {/* 2 Column Responsive Guide Cards */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '24px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: '20px'
         }}>
           
           {/* Card 1: Android TV & Smart TV */}
@@ -35,21 +35,21 @@ export default function InstallGuide({ onDownloadClick }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass-card"
-            style={{ padding: '32px' }}
+            style={{ padding: 'clamp(20px, 4vw, 32px)' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-              <div style={{ padding: '12px', background: 'rgba(56, 189, 248, 0.15)', borderRadius: '14px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
-                <Tv size={28} color="#00E5FF" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
+              <div style={{ padding: '10px', background: 'rgba(56, 189, 248, 0.15)', borderRadius: '14px', border: '1px solid rgba(56, 189, 248, 0.3)' }}>
+                <Tv size={26} color="#00E5FF" />
               </div>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800 }}>Android TV / Fire TV</h3>
+                <h3 style={{ fontSize: 'clamp(18px, 3vw, 20px)', fontWeight: 800 }}>Android TV / Fire TV</h3>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>Smart TV Installation</span>
               </div>
             </div>
 
-            <ol style={{ paddingLeft: '20px', color: '#CBD5E1', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>
+            <ol style={{ paddingLeft: '18px', color: '#CBD5E1', fontSize: '14px', lineHeight: 1.7, marginBottom: '22px' }}>
               <li style={{ marginBottom: '10px' }}>
-                <strong>Method A (TV Web Browser)</strong>: Open <em>Silk</em>, <em>Chrome</em>, or <em>TV Browser</em> on your TV, go to <strong style={{ color: '#00E5FF' }}>https://pichipieofficial.vercel.app/</strong>, click <strong>Download APK</strong> directly on your TV, and install!
+                <strong>Method A (TV Web Browser)</strong>: Open <em>Silk</em>, <em>Chrome</em>, or <em>TV Browser</em> on your TV, go to <strong style={{ color: '#00E5FF', wordBreak: 'break-all' }}>https://pichipieofficial.vercel.app/</strong>, click <strong>Download APK</strong> directly on your TV, and install!
               </li>
               <li style={{ marginBottom: '10px' }}>
                 <strong>Method B (USB Drive)</strong>: Download <strong>PichiPie-TV.apk</strong> to your PC/USB, insert the drive into your TV, open TV <em>File Manager</em>, select the APK, and install.
@@ -83,19 +83,19 @@ export default function InstallGuide({ onDownloadClick }) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass-card"
-            style={{ padding: '32px' }}
+            style={{ padding: 'clamp(20px, 4vw, 32px)' }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-              <div style={{ padding: '12px', background: 'rgba(236, 72, 153, 0.15)', borderRadius: '14px', border: '1px solid rgba(236, 72, 153, 0.3)' }}>
-                <Smartphone size={28} color="#EC4899" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
+              <div style={{ padding: '10px', background: 'rgba(236, 72, 153, 0.15)', borderRadius: '14px', border: '1px solid rgba(236, 72, 153, 0.3)' }}>
+                <Smartphone size={26} color="#EC4899" />
               </div>
               <div>
-                <h3 style={{ fontSize: '20px', fontWeight: 800 }}>Mobile &amp; Tablet</h3>
+                <h3 style={{ fontSize: 'clamp(18px, 3vw, 20px)', fontWeight: 800 }}>Mobile &amp; Tablet</h3>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>Android Smartphone Installation</span>
               </div>
             </div>
 
-            <ol style={{ paddingLeft: '20px', color: '#CBD5E1', fontSize: '14px', lineHeight: 1.8, marginBottom: '24px' }}>
+            <ol style={{ paddingLeft: '18px', color: '#CBD5E1', fontSize: '14px', lineHeight: 1.7, marginBottom: '22px' }}>
               <li style={{ marginBottom: '10px' }}>
                 Click <strong>Download APK</strong> directly on your mobile web browser.
               </li>
@@ -132,19 +132,19 @@ export default function InstallGuide({ onDownloadClick }) {
 
         {/* Security Notice Banner */}
         <div style={{
-          marginTop: '40px',
-          padding: '20px 24px',
+          marginTop: '32px',
+          padding: '16px 20px',
           borderRadius: '18px',
           background: 'rgba(16, 185, 129, 0.1)',
           border: '1px solid rgba(16, 185, 129, 0.3)',
           display: 'flex',
           alignItems: 'center',
-          gap: '16px',
+          gap: '14px',
           flexWrap: 'wrap'
         }}>
-          <ShieldCheck size={28} color="#10B981" />
-          <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: '16px', fontWeight: 700, color: '#10B981', marginBottom: '2px' }}>
+          <ShieldCheck size={26} color="#10B981" style={{ flexShrink: 0 }} />
+          <div style={{ flex: 1, minWidth: '220px' }}>
+            <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#10B981', marginBottom: '2px' }}>
               Official Production Keystore Signed
             </h4>
             <p style={{ fontSize: '13px', color: '#CBD5E1' }}>

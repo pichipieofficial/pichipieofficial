@@ -885,3 +885,37 @@
     margin-top: 20px;
   }
 }
+
+/* ── Hero Feature Cards Grid (Desktop 1 Row, Mobile 2x2 Grid) ── */
+.hero-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .hero-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .hero-cards-grid .glass-card {
+    padding: 14px 10px !important;
+  }
+}
+
+
+
+
+

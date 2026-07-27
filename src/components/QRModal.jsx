@@ -38,9 +38,11 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
           exit={{ opacity: 0, scale: 0.8 }}
           className="glass-card"
           style={{
-            maxWidth: '420dp',
+            maxWidth: '420px',
             width: '100%',
-            padding: '32px',
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            padding: 'clamp(20px, 4vw, 32px)',
             textAlign: 'center',
             position: 'relative'
           }}
@@ -50,13 +52,13 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
             onClick={onClose}
             style={{
               position: 'absolute',
-              top: '16px',
-              right: '16px',
+              top: '14px',
+              right: '14px',
               background: 'rgba(255, 255, 255, 0.1)',
               border: 'none',
               borderRadius: '50%',
-              width: '36px',
-              height: '36px',
+              width: '34px',
+              height: '34px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -64,32 +66,32 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
               cursor: 'pointer'
             }}
           >
-            <X size={20} />
+            <X size={18} />
           </button>
 
-          <QrCode size={36} color="#38BDF8" style={{ marginBottom: '12px' }} />
+          <QrCode size={32} color="#38BDF8" style={{ marginBottom: '10px' }} />
 
-          <h3 style={{ fontSize: '22px', fontWeight: 800, marginBottom: '8px' }}>
+          <h3 style={{ fontSize: 'clamp(18px, 3.5vw, 22px)', fontWeight: 800, marginBottom: '6px' }}>
             Scan to Download APK
           </h3>
 
-          <p style={{ fontSize: '13px', color: 'var(--color-text-sub)', marginBottom: '24px' }}>
+          <p style={{ fontSize: '13px', color: 'var(--color-text-sub)', marginBottom: '20px' }}>
             Scan this QR code with your mobile camera to instantly download <strong>PichiPie TV v1.0.2</strong>.
           </p>
 
           {/* QR Container */}
           <div style={{
             background: '#FFFFFF',
-            padding: '16px',
-            borderRadius: '20px',
+            padding: '14px',
+            borderRadius: '18px',
             display: 'inline-block',
-            marginBottom: '24px',
+            marginBottom: '20px',
             boxShadow: '0 10px 30px rgba(56, 189, 248, 0.3)'
           }}>
             <img
               src={qrImageUrl}
               alt="PichiPie TV APK Download QR Code"
-              style={{ width: '200px', height: '200px', display: 'block' }}
+              style={{ width: '180px', height: '180px', maxWidth: '100%', display: 'block' }}
             />
           </div>
 
@@ -100,7 +102,7 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
             style={{
               width: '100%',
               padding: '12px',
-              fontSize: '14px',
+              fontSize: '13px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

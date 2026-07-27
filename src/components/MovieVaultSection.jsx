@@ -15,11 +15,11 @@ export default function MovieVaultSection() {
   ];
 
   return (
-    <section id="vault" style={{ padding: '80px 24px', background: 'rgba(7, 9, 19, 0.7)', position: 'relative' }}>
+    <section id="vault" style={{ padding: '70px 16px', background: 'rgba(7, 9, 19, 0.7)', position: 'relative' }}>
       <div className="container-custom">
         
         {/* Title */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <span style={{
             background: 'rgba(233, 30, 99, 0.12)',
             border: '1px solid rgba(233, 30, 99, 0.3)',
@@ -29,13 +29,14 @@ export default function MovieVaultSection() {
             padding: '6px 16px',
             borderRadius: '20px',
             textTransform: 'uppercase',
-            letterSpacing: '1px'
+            letterSpacing: '1px',
+            display: 'inline-block'
           }}>
             Cinematic Engine
           </span>
           <h2 style={{
             fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(28px, 4vw, 44px)',
+            fontSize: 'clamp(26px, 4vw, 44px)',
             fontWeight: 900,
             marginTop: '12px',
             marginBottom: '12px'
@@ -50,18 +51,18 @@ export default function MovieVaultSection() {
         {/* Interactive Poster Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-          gap: '20px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))',
+          gap: '14px',
           marginBottom: '30px'
         }}>
           {movies.map((movie, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -8, scale: 1.03 }}
+              whileHover={{ y: -6, scale: 1.02 }}
               transition={{ duration: 0.2 }}
               className="glass-card"
               style={{
-                padding: '12px',
+                padding: '10px',
                 background: 'rgba(15, 23, 42, 0.8)',
                 overflow: 'hidden',
                 position: 'relative'
@@ -71,10 +72,10 @@ export default function MovieVaultSection() {
               <div style={{
                 position: 'relative',
                 width: '100%',
-                height: '240px',
-                borderRadius: '14px',
+                aspectRatio: '2/3',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                marginBottom: '12px'
+                marginBottom: '10px'
               }}>
                 <img
                   src={movie.image}
@@ -90,15 +91,15 @@ export default function MovieVaultSection() {
                 {/* Quality Badge */}
                 <span style={{
                   position: 'absolute',
-                  top: '8px',
-                  right: '8px',
+                  top: '6px',
+                  right: '6px',
                   background: 'rgba(15, 23, 42, 0.85)',
                   backdropFilter: 'blur(8px)',
                   color: '#00E5FF',
-                  fontSize: '10px',
+                  fontSize: '9px',
                   fontWeight: 900,
-                  padding: '3px 8px',
-                  borderRadius: '6px',
+                  padding: '2px 6px',
+                  borderRadius: '5px',
                   border: '1px solid rgba(0, 229, 255, 0.3)'
                 }}>
                   {movie.quality}
@@ -107,15 +108,15 @@ export default function MovieVaultSection() {
                 {/* Series / Movie Tag */}
                 <span style={{
                   position: 'absolute',
-                  top: '8px',
-                  left: '8px',
+                  top: '6px',
+                  left: '6px',
                   background: 'rgba(233, 30, 99, 0.85)',
                   backdropFilter: 'blur(8px)',
                   color: '#FFFFFF',
                   fontSize: '9px',
                   fontWeight: 900,
-                  padding: '3px 8px',
-                  borderRadius: '6px'
+                  padding: '2px 6px',
+                  borderRadius: '5px'
                 }}>
                   {movie.type}
                 </span>
@@ -123,23 +124,23 @@ export default function MovieVaultSection() {
 
               {/* Movie Title & Info */}
               <h4 style={{
-                fontSize: '14px',
+                fontSize: '13px',
                 fontWeight: 700,
                 color: '#FFFFFF',
                 lineHeight: 1.3,
-                marginBottom: '6px',
+                marginBottom: '4px',
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
                 overflow: 'hidden',
-                height: '36px'
+                minHeight: '34px'
               }}>
                 {movie.title}
               </h4>
 
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '12px', color: '#94A3B8' }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#FBBF24', fontWeight: 700 }}>
-                  <Star size={12} fill="#FBBF24" /> {movie.rating}
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '11px', color: '#94A3B8' }}>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '3px', color: '#FBBF24', fontWeight: 700 }}>
+                  <Star size={11} fill="#FBBF24" /> {movie.rating}
                 </span>
                 <span>{movie.year}</span>
               </div>
