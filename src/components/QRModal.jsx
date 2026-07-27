@@ -95,24 +95,43 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
             />
           </div>
 
-          {/* Direct Copy Button */}
-          <button
-            onClick={handleCopy}
-            className="btn-glass-secondary"
-            style={{
-              width: '100%',
-              padding: '12px',
-              fontSize: '13px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              cursor: 'pointer'
-            }}
-          >
-            {copied ? <Check size={16} color="#10B981" /> : <Copy size={16} />}
-            {copied ? "Link Copied!" : "Copy Direct Download Link"}
-          </button>
+          {/* Direct Actions: Download APK Now & Copy Link */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+            <button
+              onClick={() => window.location.href = apkUrl}
+              className="btn-primary-gradient"
+              style={{
+                width: '100%',
+                padding: '12px',
+                fontSize: '14px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              Direct Mobile Download APK
+            </button>
+
+            <button
+              onClick={handleCopy}
+              className="btn-glass-secondary"
+              style={{
+                width: '100%',
+                padding: '10px',
+                fontSize: '13px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+                cursor: 'pointer'
+              }}
+            >
+              {copied ? <Check size={16} color="#10B981" /> : <Copy size={16} />}
+              {copied ? "Link Copied!" : "Copy Direct Download Link"}
+            </button>
+          </div>
 
         </motion.div>
       </div>

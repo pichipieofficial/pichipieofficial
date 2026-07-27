@@ -30,12 +30,8 @@ export default function App() {
   }, []);
 
   const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = apkDownloadUrl;
-    link.download = 'PichiPie-TV.apk';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Direct window navigation triggers native mobile/desktop/TV OS download manager for APK files cleanly
+    window.location.href = apkDownloadUrl;
   };
 
   return (
