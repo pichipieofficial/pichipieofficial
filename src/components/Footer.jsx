@@ -1,41 +1,48 @@
 import React from 'react';
-import { Heart, Mail } from 'lucide-react';
+import { Heart, Mail, Download, Sparkles } from 'lucide-react';
 
 export default function Footer({ onDownloadClick }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer style={{
-      padding: '30px 16px',
-      background: 'rgba(5, 7, 15, 0.95)',
-      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-      color: 'var(--color-text-sub)',
-      fontSize: '14px'
-    }}>
-      <div className="container-custom" style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '16px'
-      }}>
+    <footer className="footer-container">
+      <div className="footer-inner">
         
-        {/* Left Brand */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Brand Section */}
+        <div className="footer-brand" onClick={scrollToTop} style={{ cursor: 'pointer' }} title="Back to Top">
           <img
             src="/app-icon.png"
             alt="PichiPie TV"
-            style={{ width: '26px', height: '26px', borderRadius: '7px' }}
+            style={{ width: '28px', height: '28px', borderRadius: '8px' }}
           />
-          <span style={{ fontWeight: 900, color: '#FFFFFF', fontSize: '17px' }}>PichiPie TV</span>
-          <span style={{ fontSize: '11px', color: '#00E5FF', fontWeight: 700 }}>v1.0.2</span>
+          <span style={{ fontWeight: 900, color: '#FFFFFF', fontSize: '18px', fontFamily: 'var(--font-heading)' }}>
+            PichiPie <span style={{ color: '#00E5FF' }}>TV</span>
+          </span>
+          <span style={{
+            background: 'rgba(0, 229, 255, 0.1)',
+            border: '1px solid rgba(0, 229, 255, 0.3)',
+            color: '#00E5FF',
+            fontSize: '10px',
+            fontWeight: 800,
+            padding: '2px 8px',
+            borderRadius: '12px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '3px'
+          }}>
+            <Sparkles size={10} /> v1.0.2
+          </span>
         </div>
 
-        {/* Center Text: Crafted with ❤️ by PichiPie Labs */}
-        <div style={{ textAlign: 'center', fontWeight: 600, color: '#CBD5E1', fontSize: '13px' }}>
-          Crafted with <Heart size={14} color="#E91E63" fill="#E91E63" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 2px' }} /> by <strong style={{ color: '#FFFFFF' }}>PichiPie Labs</strong>
+        {/* Center Credits */}
+        <div className="footer-center">
+          Crafted with <Heart size={14} color="#E91E63" fill="#E91E63" style={{ margin: '0 2px' }} /> by <strong style={{ color: '#FFFFFF' }}>PichiPie Labs</strong>
         </div>
 
-        {/* Right Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+        {/* Right Quick Actions */}
+        <div className="footer-actions">
           <a
             href="mailto:pichipie.official@gmail.com"
             style={{
@@ -43,30 +50,37 @@ export default function Footer({ onDownloadClick }) {
               textDecoration: 'none',
               fontWeight: 600,
               fontSize: '13px',
-              display: 'flex',
+              display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              wordBreak: 'break-all',
               transition: 'color 0.2s'
             }}
             onMouseOver={e => e.currentTarget.style.color = '#00E5FF'}
             onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}
           >
-            <Mail size={14} color="#00E5FF" /> Dev Email
+            <Mail size={14} color="#00E5FF" /> Dev Contact
           </a>
+
+          <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>•</span>
 
           <button
             onClick={onDownloadClick}
             style={{
-              background: 'none',
-              border: 'none',
+              background: 'rgba(0, 229, 255, 0.1)',
+              border: '1px solid rgba(0, 229, 255, 0.3)',
               color: '#00E5FF',
+              borderRadius: '20px',
+              padding: '6px 14px',
               cursor: 'pointer',
               fontWeight: 700,
-              fontSize: '13px'
+              fontSize: '12px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '5px',
+              transition: 'all 0.2s'
             }}
           >
-            Download APK
+            <Download size={13} /> Download APK
           </button>
         </div>
 
@@ -74,3 +88,4 @@ export default function Footer({ onDownloadClick }) {
     </footer>
   );
 }
+

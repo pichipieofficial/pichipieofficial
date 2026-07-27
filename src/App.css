@@ -909,11 +909,70 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
-  
-  .hero-cards-grid .glass-card {
-    padding: 14px 10px !important;
+}
+
+/* ── Footer Responsive System ── */
+.footer-container {
+  padding: 36px 24px 28px;
+  background: rgba(5, 7, 15, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #CBD5E1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 28px 16px 24px;
+  }
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .footer-brand {
+    justify-content: center;
+  }
+  .footer-actions {
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
   }
 }
+
+
 
 
 
