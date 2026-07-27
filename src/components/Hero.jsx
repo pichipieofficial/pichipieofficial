@@ -1,170 +1,186 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { DownloadSimple, Tag, ArrowRight } from '@phosphor-icons/react';
-import TvMockupRenderer from './TvMockupRenderer';
-import MobileMockupRenderer from './MobileMockupRenderer';
+import { Download, QrCode, ShieldCheck, Tv, Film, Zap, CheckCircle2 } from 'lucide-react';
+import confetti from 'canvas-confetti';
 
-/* ── Live TV Screen for TV Mockup ── */
-const TvLiveScreen = () => {
-  const channels = [
-    { name: 'Sports HD', cat: 'Sports', color: '#22C55E' },
-    { name: 'News 24', cat: 'News', color: '#3B82F6' },
-    { name: 'Movie Max', cat: 'Movies', color: '#EF4444' },
-    { name: 'Kids Zone', cat: 'Kids', color: '#F59E0B' },
-  ];
+export default function Hero({ onOpenQR, onDownloadClick }) {
+  const handleDownload = () => {
+    confetti({
+      particleCount: 100,
+      spread: 80,
+      origin: { y: 0.6 }
+    });
+    onDownloadClick();
+  };
 
   return (
-    <div style={{ padding: '20px', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', background: '#0a0e1e' }}>
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', gap: '8px' }}>
-        <div style={{ width: '24px', height: '24px', borderRadius: '6px', overflow: 'hidden', flexShrink: 0 }}>
-          <img src="/Icon.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.35)' }} />
-        </div>
-        <span style={{ fontWeight: 800, fontSize: '12px', letterSpacing: '-0.02em', color: '#fff' }}>PichiPie</span>
-        <div style={{ flex: 1 }} />
-        <div style={{ padding: '4px 12px', borderRadius: '4px', fontSize: '10px', fontWeight: 600, background: 'rgba(255,255,255,0.08)', color: '#fff' }}>Live TV</div>
-      </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px', flex: 1, alignContent: 'start' }}>
-        {channels.map((ch, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.04)', borderRadius: '8px', padding: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: '26px', height: '26px', borderRadius: '6px', background: `${ch.color}15`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '12px', fontWeight: 800, color: ch.color }}>{ch.name[0]}</div>
-            <div style={{ overflow: 'hidden' }}>
-              <div style={{ fontSize: '11px', fontWeight: 700, color: '#fff' }}>{ch.name}</div>
-              <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.6)', marginTop: '2px' }}>{ch.cat}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 70, damping: 20 } }
-};
-
-export default function Hero() {
-  return (
-    <section className="hero-premium-single" id="hero">
-      {/* Dynamic Background Aurora */}
-      <div className="hero-premium-single__aurora" />
-
-      <motion.div 
-        className="hero-premium-single__container"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Left Column: Copy & CTA */}
-        <div className="hero-premium-single__content-left">
-          <motion.div variants={itemVariants} className="hero-premium-single__badge-wrap">
-            <div className="hero-premium-single__badge" style={{ background: 'rgba(0, 229, 255, 0.1)', borderColor: 'rgba(0, 229, 255, 0.2)', color: '#00E5FF' }}>
-              <span className="hero-premium-single__badge-dot" style={{ boxShadow: '0 0 10px #00E5FF' }} />
-              <Tag size={14} weight="fill" />
-              100% Free & Ad-Free
-            </div>
-          </motion.div>
-
-          <motion.h1 variants={itemVariants} className="hero-premium-single__title">
-            Flawless Streaming.<br />
-            <span className="text-gradient">Any Screen.</span>
-          </motion.h1>
-
-          <motion.p variants={itemVariants} className="hero-premium-single__subtitle" style={{ maxWidth: '90%' }}>
-            Dive into a limitless universe of live TV and movies. Zero ads, zero tracking, and zero subscriptions. Engineered for absolute fluidity on both your TV and your Mobile device.
-          </motion.p>
-
-          <motion.div variants={itemVariants} style={{ display: 'flex', gap: '24px', marginBottom: '40px' }}>
-             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(34, 197, 94, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                Native Server
-             </div>
-             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(34, 197, 94, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                4K HDR Ready
-             </div>
-             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', fontWeight: 600 }}>
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(34, 197, 94, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                </div>
-                No Setup Required
-             </div>
-          </motion.div>
-
-          <motion.div variants={itemVariants} className="hero-premium-single__actions">
-            <motion.a 
-              href="https://github.com/pichipieofficial/app-update/releases/latest/download/PichiPie-TV.apk"
-              className="hero-premium__btn-primary"
-              whileHover={{ scale: 1.04, boxShadow: '0 0 60px rgba(0, 229, 255, 0.4)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-            >
-              <DownloadSimple size={20} weight="bold" />
-              Download APK
-            </motion.a>
-            <motion.a
-              href="#features"
-              className="hero-premium__btn-ghost"
-              whileHover={{ scale: 1.03, background: 'rgba(255,255,255,0.05)' }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Explore Features
-              <ArrowRight size={16} weight="bold" />
-            </motion.a>
-          </motion.div>
-        </div>
-
-        {/* Right Column: Visuals (TV + Landscape Mobile) */}
-        <motion.div className="hero-premium-single__visuals-right">
-          <div className="hero-premium-single__glow" />
-
-          {/* TV Mockup (Background/Center-Right) */}
-          <motion.div 
-            variants={itemVariants}
-            style={{ 
-              position: 'absolute', 
-              width: '95%', 
-              maxWidth: '680px', 
-              right: '-5%', 
-              top: '10%',
-              zIndex: 1,
-              filter: 'drop-shadow(0 30px 50px rgba(0,0,0,0.5))'
+    <section style={{
+      padding: '110px 24px 60px',
+      minHeight: '85vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      position: 'relative'
+    }}>
+      <div className="container-custom" style={{ maxWidth: '1000px' }}>
+        
+        {/* Floating App Icon Badge */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', marginBottom: '24px' }}
+        >
+          <img
+            src="/app-icon.png"
+            alt="PichiPie TV"
+            style={{
+              width: '80px',
+              height: '80px',
+              borderRadius: '22px',
+              boxShadow: '0 0 40px rgba(0, 229, 255, 0.6), 0 0 80px rgba(233, 30, 99, 0.4)',
+              border: '2px solid rgba(255, 255, 255, 0.2)',
+              marginBottom: '16px'
             }}
-          >
-            <TvMockupRenderer>
-              <TvLiveScreen />
-            </TvMockupRenderer>
-          </motion.div>
+          />
 
-          {/* Landscape Mobile Mockup (Foreground/Bottom-Left) */}
-          <motion.div 
-            variants={itemVariants}
-            style={{ 
-              position: 'absolute',
-              width: '380px',
-              height: '175px',
-              left: '-10%',
-              bottom: '15%',
-              zIndex: 2,
-              filter: 'drop-shadow(-20px 30px 40px rgba(0,0,0,0.6))'
-            }}
-          >
-            <MobileMockupRenderer>
-              <TvLiveScreen />
-            </MobileMockupRenderer>
-          </motion.div>
+          <span style={{
+            background: 'linear-gradient(135deg, rgba(233, 30, 99, 0.2) 0%, rgba(0, 229, 255, 0.2) 100%)',
+            border: '1px solid rgba(0, 229, 255, 0.4)',
+            padding: '8px 18px',
+            borderRadius: '30px',
+            fontSize: '13px',
+            fontWeight: 800,
+            color: '#F8FAFC',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            boxShadow: '0 0 20px rgba(0, 229, 255, 0.2)'
+          }}>
+            <Zap size={14} color="#00E5FF" /> Official v1.0.2 • RSA 2048-bit Signed
+          </span>
         </motion.div>
-      </motion.div>
+
+        {/* Main Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            fontFamily: 'var(--font-heading)',
+            fontSize: 'clamp(38px, 6vw, 72px)',
+            fontWeight: 900,
+            lineHeight: 1.1,
+            marginBottom: '24px',
+            letterSpacing: '-1.5px'
+          }}
+        >
+          The Future of Streaming <br />
+          <span className="text-gradient-cyan">PichiPie TV v1.0.2</span>
+        </motion.h1>
+
+        {/* Subhead */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            fontSize: 'clamp(16px, 2vw, 20px)',
+            color: 'var(--color-text-sub)',
+            lineHeight: 1.6,
+            marginBottom: '40px',
+            maxWidth: '760px',
+            margin: '0 auto 40px'
+          }}
+        >
+          Ground-up Cyber-Glass UI, adaptive 5–8 column 4K movie vault, broadcast standby slates, and instant 1-click D-Pad remote navigation for Android TV &amp; Mobile.
+        </motion.p>
+
+        {/* Action CTAs */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '18px',
+            marginBottom: '50px'
+          }}
+        >
+          <button
+            onClick={handleDownload}
+            className="btn-primary-gradient"
+            style={{
+              padding: '16px 38px',
+              fontSize: '18px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              cursor: 'pointer'
+            }}
+          >
+            <Download size={22} /> Download APK (v1.0.2)
+          </button>
+
+          <button
+            onClick={onOpenQR}
+            className="btn-glass-secondary"
+            style={{
+              padding: '16px 28px',
+              fontSize: '16px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              cursor: 'pointer'
+            }}
+          >
+            <QrCode size={20} /> Mobile Scan QR
+          </button>
+        </motion.div>
+
+        {/* 4 Cards strictly in ONE ROW (4 columns grid) */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '16px',
+            marginTop: '20px'
+          }}
+          className="hero-cards-row"
+        >
+          <div className="glass-card" style={{ padding: '20px', textAlign: 'center' }}>
+            <Tv size={28} color="#00E5FF" style={{ marginBottom: '10px' }} />
+            <h3 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '4px' }}>250+ Live Channels</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>High-definition sports, news &amp; entertainment</p>
+          </div>
+
+          <div className="glass-card" style={{ padding: '20px', textAlign: 'center' }}>
+            <Film size={28} color="#E91E63" style={{ marginBottom: '10px' }} />
+            <h3 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '4px' }}>10,000+ Movies</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>Adaptive 5-8 column 4K &amp; 1080p movie vault</p>
+          </div>
+
+          <div className="glass-card" style={{ padding: '20px', textAlign: 'center' }}>
+            <ShieldCheck size={28} color="#A855F7" style={{ marginBottom: '10px' }} />
+            <h3 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '4px' }}>Production Signed</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>RSA 2048-bit keystore signed through 2053</p>
+          </div>
+
+          <div className="glass-card" style={{ padding: '20px', textAlign: 'center' }}>
+            <CheckCircle2 size={28} color="#10B981" style={{ marginBottom: '10px' }} />
+            <h3 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '4px' }}>100% Free &amp; Clean</h3>
+            <p style={{ fontSize: '12px', color: 'var(--color-text-sub)' }}>Zero ads, zero data tracking, pure streaming</p>
+          </div>
+        </motion.div>
+
+      </div>
     </section>
   );
 }

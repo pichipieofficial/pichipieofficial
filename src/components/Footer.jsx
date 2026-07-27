@@ -1,91 +1,74 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { DownloadSimple } from '@phosphor-icons/react';
+import { Heart, Mail } from 'lucide-react';
 
-export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+export default function Footer({ onDownloadClick }) {
   return (
-    <footer style={{ 
-      position: 'relative', 
-      zIndex: 1, 
-      borderTop: '1px solid rgba(255,255,255,0.05)',
-      background: 'linear-gradient(to top, rgba(10, 14, 30, 0.9), transparent)',
-      marginTop: '50px'
+    <footer style={{
+      padding: '36px 24px',
+      background: 'rgba(5, 7, 15, 0.95)',
+      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+      color: 'var(--color-text-sub)',
+      fontSize: '14px'
     }}>
-      
-      {/* Premium subtle top glow */}
-      <div style={{
-        position: 'absolute', top: 0, left: '20%', right: '20%', height: '1px',
-        background: 'linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), transparent)',
-        boxShadow: '0 0 20px rgba(0, 229, 255, 0.2)'
-      }} />
-
-      <div className="section-container" style={{ padding: '30px var(--space-4) 20px', maxWidth: '1100px' }}>
+      <div className="container-custom" style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: '20px'
+      }}>
         
-        <div style={{ 
-          display: 'flex', 
-          flexDirection: 'column', 
-          alignItems: 'center', 
-          gap: '16px'
-        }}>
-
-          {/* Logo */}
-          <motion.div 
-            style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div style={{
-              width: '40px', height: '40px', borderRadius: '12px', overflow: 'hidden',
-              background: 'var(--color-surface)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
-            }}>
-              <img src="/Icon.png" alt="PichiPie" style={{ transform: 'scale(1.35)', objectFit: 'cover' }} />
-            </div>
-            <span style={{ fontSize: '1.2rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#fff' }}>
-              PichiPie
-            </span>
-          </motion.div>
-
-          {/* Links */}
-          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <motion.a 
-              href="https://github.com/pichipieofficial/app-update/releases/latest/download/PichiPie-TV.apk" 
-              style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.85rem', fontWeight: 500 }}
-              whileHover={{ color: '#00E5FF' }}
-            >
-              <DownloadSimple size={16} weight="bold" />
-              Download
-            </motion.a>
-            <motion.a 
-              href="#" 
-              style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500 }}
-              whileHover={{ color: '#00E5FF' }}
-            >
-              Privacy Policy
-            </motion.a>
-            <motion.a 
-              href="#" 
-              style={{ color: 'var(--color-text-secondary)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 500 }}
-              whileHover={{ color: '#00E5FF' }}
-            >
-              Terms of Service
-            </motion.a>
-          </div>
-
-          {/* Copyright */}
-          <div style={{ 
-            color: 'rgba(255,255,255,0.3)', 
-            fontSize: '0.75rem',
-            textAlign: 'center'
-          }}>
-            &copy; {new Date().getFullYear()} PichiPie TV. Engineered for Mobile & the Living Room.
-          </div>
-
+        {/* Left Brand */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <img
+            src="/app-icon.png"
+            alt="PichiPie TV"
+            style={{ width: '28px', height: '28px', borderRadius: '7px' }}
+          />
+          <span style={{ fontWeight: 900, color: '#FFFFFF', fontSize: '18px' }}>PichiPie TV</span>
+          <span style={{ fontSize: '12px', color: '#00E5FF', fontWeight: 700 }}>v1.0.2</span>
         </div>
+
+        {/* Center Text: Crafted with ❤️ by PichiPie Labs */}
+        <div style={{ textAlign: 'center', fontWeight: 600, color: '#CBD5E1' }}>
+          Crafted with <Heart size={15} color="#E91E63" fill="#E91E63" style={{ display: 'inline', verticalAlign: 'middle', margin: '0 2px' }} /> by <strong style={{ color: '#FFFFFF' }}>PichiPie Labs</strong>
+        </div>
+
+        {/* Right Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <a
+            href="mailto:pichipie.official@gmail.com"
+            style={{
+              color: 'var(--color-text-sub)',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'color 0.2s'
+            }}
+            onMouseOver={e => e.currentTarget.style.color = '#00E5FF'}
+            onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}
+          >
+            <Mail size={15} color="#00E5FF" /> Dev: pichipie.official@gmail.com
+          </a>
+
+          <button
+            onClick={onDownloadClick}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#00E5FF',
+              cursor: 'pointer',
+              fontWeight: 700,
+              fontSize: '14px'
+            }}
+          >
+            Download APK
+          </button>
+        </div>
+
       </div>
     </footer>
   );

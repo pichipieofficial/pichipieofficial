@@ -1,72 +1,111 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll } from 'framer-motion';
-import { DownloadSimple } from '@phosphor-icons/react';
+import React from 'react';
+import { Download, Sparkles, Zap, Film, Radio, Rocket, Mail } from 'lucide-react';
 
-export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const { scrollY } = useScroll();
-  
-  useEffect(() => {
-    const unsubscribe = scrollY.on('change', (latest) => {
-      setScrolled(latest > 40);
-    });
-    return () => unsubscribe();
-  }, [scrollY]);
-
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+export default function Navbar({ onDownloadClick }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <motion.nav
-      className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 150, damping: 25, delay: 0.5 }}
-    >
-      <div className="navbar__inner">
-        <motion.div 
-          className="navbar__logo"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          style={{ cursor: 'pointer' }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      zIndex: 1000,
+      padding: '14px 24px',
+      background: 'rgba(7, 9, 19, 0.85)',
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+      boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)'
+    }}>
+      <div className="container-custom" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        
+        {/* Brand Icon & TV Name — Clickable to Scroll to Home */}
+        <div 
+          onClick={scrollToTop}
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }}
+          title="Back to Top / Home"
         >
-          <div className="navbar__logo-icon">
-            <img src="/Icon.png" alt="PichiPie" style={{ objectFit: 'cover', transform: 'scale(1.35)' }} />
+          <img
+            src="./app-icon.png"
+            alt="PichiPie TV App Icon"
+            style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: '10px',
+              boxShadow: '0 0 15px rgba(0, 229, 255, 0.4)',
+              display: 'block'
+            }}
+          />
+          
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '20px',
+              fontWeight: 900,
+              lineHeight: 1.1,
+              letterSpacing: '-0.3px',
+              color: '#FFFFFF'
+            }}>
+              PichiPie <span style={{ color: '#00E5FF' }}>TV</span>
+            </span>
           </div>
-          <span className="navbar__logo-text">PichiPie TV</span>
-        </motion.div>
 
-        <ul className="navbar__links">
-          {[
-            { label: 'Features', id: 'features' },
-            { label: 'Showcase', id: 'showcase' },
-            { label: 'Install', id: 'install' },
-          ].map((item) => (
-            <motion.li
-              key={item.id}
-              className="navbar__link"
-              onClick={() => scrollTo(item.id)}
-              whileHover={{ color: '#EEEEF3' }}
-              transition={{ duration: 0.15 }}
-            >
-              {item.label}
-            </motion.li>
-          ))}
-        </ul>
+          <span style={{
+            background: 'rgba(0, 229, 255, 0.12)',
+            border: '1px solid rgba(0, 229, 255, 0.4)',
+            color: '#00E5FF',
+            fontSize: '11px',
+            fontWeight: 800,
+            padding: '3px 10px',
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            marginLeft: '6px'
+          }}>
+            <Sparkles size={12} /> v1.0.2
+          </span>
+        </div>
 
-        <motion.a
-          href="https://github.com/pichipieofficial/app-update/releases/latest/download/PichiPie-TV.apk"
-          className="navbar__cta"
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+        {/* Futuristic Nav Links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }} className="hidden-mobile">
+          <a href="#features" style={{ color: 'var(--color-text-sub)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#00E5FF'} onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}>
+            <Zap size={14} color="#00E5FF" /> Live Broadcast Hub
+          </a>
+          <a href="#vault" style={{ color: 'var(--color-text-sub)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#00E5FF'} onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}>
+            <Film size={14} color="#E91E63" /> Cinematic Engine
+          </a>
+          <a href="#standby" style={{ color: 'var(--color-text-sub)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#00E5FF'} onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}>
+            <Radio size={14} color="#A855F7" /> Standby Slate
+          </a>
+          <a href="#guide" style={{ color: 'var(--color-text-sub)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#00E5FF'} onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}>
+            <Rocket size={14} color="#10B981" /> Install Guide
+          </a>
+          <a href="#contact" style={{ color: 'var(--color-text-sub)', textDecoration: 'none', fontSize: '14px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s' }} onMouseOver={e => e.currentTarget.style.color = '#00E5FF'} onMouseOut={e => e.currentTarget.style.color = 'var(--color-text-sub)'}>
+            <Mail size={14} color="#00E5FF" /> Contact Dev
+          </a>
+        </div>
+
+        {/* Right CTA Button */}
+        <button 
+          onClick={onDownloadClick}
+          className="btn-primary-gradient"
+          style={{
+            padding: '10px 22px',
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            cursor: 'pointer'
+          }}
         >
-          <DownloadSimple size={16} weight="bold" />
-          Download
-        </motion.a>
+          <Download size={16} /> Download APK
+        </button>
+
       </div>
-    </motion.nav>
+    </nav>
   );
 }
