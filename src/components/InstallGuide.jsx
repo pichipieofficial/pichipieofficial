@@ -60,7 +60,7 @@ export default function InstallGuide({ onDownloadClick }) {
             </ol>
 
             <button
-              onClick={onDownloadClick}
+              onClick={(e) => onDownloadClick(e)}
               className="btn-primary-gradient"
               style={{
                 width: '100%',
@@ -111,7 +111,7 @@ export default function InstallGuide({ onDownloadClick }) {
             </ol>
 
             <button
-              onClick={onDownloadClick}
+              onClick={(e) => onDownloadClick(e)}
               className="btn-glass-secondary"
               style={{
                 width: '100%',

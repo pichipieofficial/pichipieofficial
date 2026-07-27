@@ -4,13 +4,15 @@ import { Download, QrCode, ShieldCheck, Tv, Film, Zap, CheckCircle2 } from 'luci
 import confetti from 'canvas-confetti';
 
 export default function Hero({ onOpenQR, onDownloadClick }) {
-  const handleDownload = () => {
+  const handleDownload = (e) => {
     confetti({
       particleCount: 100,
       spread: 80,
       origin: { y: 0.6 }
     });
-    onDownloadClick();
+    if (onDownloadClick) {
+      onDownloadClick(e);
+    }
   };
 
   return (
@@ -114,7 +116,7 @@ export default function Hero({ onOpenQR, onDownloadClick }) {
           }}
         >
           <button
-            onClick={handleDownload}
+            onClick={(e) => handleDownload(e)}
             className="btn-primary-gradient"
             style={{
               padding: '14px 32px',

@@ -64,7 +64,7 @@ export default function Footer({ onDownloadClick }) {
           <span style={{ color: 'rgba(255, 255, 255, 0.2)' }}>•</span>
 
           <button
-            onClick={onDownloadClick}
+            onClick={(e) => onDownloadClick(e)}
             style={{
               background: 'rgba(0, 229, 255, 0.1)',
               border: '1px solid rgba(0, 229, 255, 0.3)',

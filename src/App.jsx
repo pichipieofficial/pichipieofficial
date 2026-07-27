@@ -29,9 +29,23 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handleDownload = () => {
-    // Direct window navigation triggers native mobile/desktop/TV OS download manager for APK files cleanly
-    window.location.href = apkDownloadUrl;
+  const handleDownload = (e) => {
+    if (e && typeof e.preventDefault === 'function') {
+      e.preventDefault();
+    }
+    
+    // Add unique timestamp query parameter so browser/OS download manager initiates fresh download (e.g. PichiPie-TV (1).apk) without browser caching issues
+    const freshDownloadUrl = `${apkDownloadUrl}?t=${Date.now()}`;
+
+    // Background iframe download trigger: follows GitHub 302 redirects without reloading or interrupting the main web page
+    let iframe = document.getElementById('apk-download-frame');
+    if (!iframe) {
+      iframe = document.createElement('iframe');
+      iframe.id = 'apk-download-frame';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+    }
+    iframe.src = freshDownloadUrl;
   };
 
   return (

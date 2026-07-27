@@ -98,7 +98,17 @@ export default function QRModal({ isOpen, onClose, apkUrl }) {
           {/* Direct Actions: Download APK Now & Copy Link */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
             <button
-              onClick={() => window.location.href = apkUrl}
+              onClick={(e) => {
+                if (e && e.preventDefault) e.preventDefault();
+                let iframe = document.getElementById('apk-download-frame');
+                if (!iframe) {
+                  iframe = document.createElement('iframe');
+                  iframe.id = 'apk-download-frame';
+                  iframe.style.display = 'none';
+                  document.body.appendChild(iframe);
+                }
+                iframe.src = `${apkUrl}?t=${Date.now()}`;
+              }}
               className="btn-primary-gradient"
               style={{
                 width: '100%',

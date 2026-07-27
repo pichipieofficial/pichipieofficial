@@ -108,7 +108,7 @@ export default function Navbar({ onDownloadClick }) {
         {/* Desktop CTA Button */}
         <div className="hidden-mobile" style={{ display: 'flex', alignItems: 'center' }}>
           <button 
-            onClick={onDownloadClick}
+            onClick={(e) => onDownloadClick(e)}
             className="btn-primary-gradient"
             style={{
               padding: '10px 20px',
@@ -126,7 +126,7 @@ export default function Navbar({ onDownloadClick }) {
         {/* Mobile Actions: Direct APK Download + Hamburger Toggle */}
         <div className="show-mobile-only" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <button
-            onClick={onDownloadClick}
+            onClick={(e) => onDownloadClick(e)}
             className="btn-primary-gradient"
             style={{
               padding: '8px 14px',
@@ -207,9 +207,9 @@ export default function Navbar({ onDownloadClick }) {
             ))}
 
             <button
-              onClick={() => {
+              onClick={(e) => {
                 setMobileMenuOpen(false);
-                onDownloadClick();
+                onDownloadClick(e);
               }}
               className="btn-primary-gradient"
               style={{
@@ -232,4 +232,3 @@ export default function Navbar({ onDownloadClick }) {
     </nav>
   );
 }
-
